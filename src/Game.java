@@ -38,8 +38,8 @@ public class Game {
                 continue;
             } catch (LetterGuessedWrongException exception) {
                 System.out.println("Вы уже пробовали эту букву!");
+                continue;
             }
-
             Printer.print(word, mistakesCounter);
         }
 
@@ -70,9 +70,7 @@ public class Game {
         System.out.println("----------------- ВИСЕЛЬНИЦА -----------------");
         System.out.println("Добро пожаловать в игру висельница!");
         System.out.println("Вам нужно будет постараться отгадать загаданное слово меньше чем за шесть ошибок!");
-
         System.out.println("Вы готовы начать?");
-
 
         while (input.getChoice()) {
             System.out.println("Начнем игру!");
