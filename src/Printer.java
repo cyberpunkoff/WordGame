@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Printer {
     private static final String stageZero = "---+--\n" +
             "   | |\n" +

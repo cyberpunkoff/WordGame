@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 public class Word {
     private final String word;
-    private ArrayList<Character> guessedLetters;
-    private ArrayList<Character> guessedWrongLetters;
+    private final ArrayList<Character> guessedLetters;
+    private final ArrayList<Character> guessedWrongLetters;
 
     Word(String word) {
         this.word = word;
-        guessedLetters = new ArrayList<Character>();
-        guessedWrongLetters = new ArrayList<Character>();
+        guessedLetters = new ArrayList<>();
+        guessedWrongLetters = new ArrayList<>();
     }
 
     public char charAt(int index) {

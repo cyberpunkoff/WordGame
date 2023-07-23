@@ -2,14 +2,10 @@ import exceptions.LetterGuessedException;
 import exceptions.LetterGuessedWrongException;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Game {
 
     InputReader input;
-    ArrayList<Character> guessedLetters;
-    private int mistakesCounter; // при количестве ошибок больше шести игра заканчивается
-    private Word word;
 
     Game() {
         input = new InputReader();
@@ -17,10 +13,11 @@ public class Game {
 
     public void game() {
 
-        mistakesCounter = 0;
+        // при количестве ошибок больше шести игра заканчивается
+        int mistakesCounter = 0;
 
         String wordFromDictionary = Dictionary.getWord();
-        word = new Word(wordFromDictionary);
+        Word word = new Word(wordFromDictionary);
 
         System.out.printf("Сейчас вам будет загадано слово из %d букв%n", word.length());
         Printer.print(word, mistakesCounter);
