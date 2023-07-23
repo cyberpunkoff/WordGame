@@ -1,22 +1,28 @@
-import java.sql.SQLOutput;
+import exceptions.LetterGuessedException;
+import exceptions.LetterGuessedWrongException;
+
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Game {
 
     InputReader input;
     ArrayList<Character> guessedLetters;
     private int mistakesCounter; // при количестве ошибок больше шести игра заканчивается
-    private final Word word;
+    private Word word;
 
     Game() {
-        mistakesCounter = 0;
-        String wordFromDictionary = Dictionary.getWord();
-        word = new Word(wordFromDictionary);
         input = new InputReader();
     }
 
     public void game() {
+
+        mistakesCounter = 0;
+
+        String wordFromDictionary = Dictionary.getWord();
+        word = new Word(wordFromDictionary);
+
+        System.out.printf("Сейчас вам будет загадано слово из %d букв%n", word.length());
         Printer.print(word, mistakesCounter);
 
         while (mistakesCounter < 6 && !word.isGuessed()) {
@@ -44,15 +50,38 @@ public class Game {
             System.out.println("Вы победили!");
         } else {
             System.out.println("Вы проиграли!");
+            System.out.println("Было загадано слово " + word.getWord());
         }
     }
 
-    public void begin() {
+    public void setup() {
+        System.out.println("Загрзите словарь! Каждое слово должно начинаться с новой строки.");
+        System.out.println("Файл словаря должен находиться в одной папке с игрой");
+
+        boolean fileReadSuccessful = false;
+        while (!fileReadSuccessful) {
+            try {
+                Dictionary.loadWords(input.getFilename());
+                fileReadSuccessful = true;
+            } catch (IOException exception) {
+                System.out.println("Ошибка чтения файла!");
+            } catch (NullPointerException exception){
+                System.out.println("Файл не найден");
+            }
+        }
+
         System.out.println("----------------- ВИСЕЛЬНИЦА -----------------");
         System.out.println("Добро пожаловать в игру висельница!");
-        System.out.printf("Сейчас вам будет загадано слово из %d букв%n", word.length());
-        System.out.println("Вам нужно будет постараться отгадать его меньше чем за шесть ошибок!");
-        System.out.println("Начнем игру!");
-        game();
+        System.out.println("Вам нужно будет постараться отгадать загаданное слово меньше чем за шесть ошибок!");
+
+        System.out.println("Вы готовы начать?");
+
+
+        while (input.getChoice()) {
+            System.out.println("Начнем игру!");
+            game();
+            System.out.println("Хотите сыграть еще раз?");
+        }
+        System.out.println("Хорошего дня!");
     }
 }

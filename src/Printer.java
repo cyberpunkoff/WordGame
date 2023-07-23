@@ -7,49 +7,42 @@ public class Printer {
             "     |\n" +
             "     |\n" +
             "_____|_____";
-
     private static final String stageOne = "---+--\n" +
             "  *| |\n" +
             "     |\n" +
             "     |\n" +
             "     |\n" +
             "_____|_____";
-
     private static final String stageTwo = "---+--\n" +
             "  *| |\n" +
             "  |  |\n" +
             "  |  |\n" +
             "     |\n" +
             "_____|_____";
-
     private static final String stageThree = "---+--\n" +
             "  *| |\n" +
             " /|  |\n" +
             "  |  |\n" +
             "     |\n" +
             "_____|_____";
-
     private static final String stageFour = "---+--\n" +
             "  *| |\n" +
             " /|\\ |\n" +
             "  |  |\n" +
             "     |\n" +
             "_____|_____";
-
     private static final String stageFive = "---+--\n" +
             "  *| |\n" +
             " /|\\ |\n" +
             "  |  |\n" +
             " /   |\n" +
             "_____|_____";
-
     private static final String stageSix = "---+--\n" +
             "  *| |\n" +
             " /|\\ |\n" +
             "  |  |\n" +
             " / \\ |\n" +
             "_____|_____";
-
     private static final String[] gameStages = {stageZero, stageOne, stageTwo, stageThree, stageFour, stageFive, stageSix};
 
     public static void print(Word word, int mistakesCounter) {

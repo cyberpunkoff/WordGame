@@ -31,4 +31,20 @@ public class InputReader {
         return getLetter();
 
     }
+
+    public String getFilename() {
+        System.out.print("Введите имя файла: ");
+        String filename = inputStream.next();
+        return filename;
+    }
+
+    public boolean getChoice() {
+        System.out.print("Сделайте выбор (да/нет): ");
+        String userInput = inputStream.next().toLowerCase();
+        if (userInput.equals("да"))
+            return true;
+        if (userInput.equals("нет"))
+            return false;
+        return getChoice();
+    }
 }

@@ -1,3 +1,6 @@
+import exceptions.LetterGuessedException;
+import exceptions.LetterGuessedWrongException;
+
 import java.util.ArrayList;
 
 public class Word {
