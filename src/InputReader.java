@@ -14,7 +14,7 @@ public class InputReader {
 
     public char getLetter() {
 
-        System.out.println("Введите букву: ");
+        System.out.print("Введите букву: ");
         String userInput = inputStream.next().toUpperCase();
 
         if (userInput.length() > 1 || userInput.isBlank()) {
